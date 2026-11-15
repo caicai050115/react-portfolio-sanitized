@@ -1,49 +1,37 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import Reveal from './Reveal';
 import UptimeTimer from './UptimeTimer';
 
 export default function Hero() {
-  const reduceMotion = useReducedMotion();
-
   return (
-    <section
-      id="home"
-      className="relative flex min-h-screen overflow-hidden bg-white px-5 pt-28 text-black sm:px-8"
-      aria-labelledby="home-title"
-    >
-      <div className="absolute bottom-8 right-6 hidden h-24 w-px bg-black sm:block" aria-hidden="true" />
-      <UptimeTimer />
-
-      <div className="relative z-10 mx-auto flex w-full max-w-site flex-col justify-center pb-20">
-        <motion.p
-          initial={reduceMotion ? false : { opacity: 0, y: 18 }}
-          animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="ml-auto max-w-[16rem] pb-8 text-sm font-bold uppercase tracking-[0.28em] text-neutral-700 sm:mr-[14vw]"
-        >
-          Hello world
-        </motion.p>
-
-        <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 52 }}
-          animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="ml-auto w-full max-w-[980px]"
-        >
-          <h1
-            id="home-title"
-            className="text-[clamp(3rem,13.5vw,11.5rem)] font-black uppercase leading-[0.82] tracking-normal"
-          >
-            HELLO I'M
-            <br />
+    <section id="home" aria-labelledby="home-title" className="bg-white">
+      <div className="mx-auto max-w-site px-5 sm:px-8 lg:px-10">
+        <Reveal className="[container-type:inline-size] pt-16 sm:pt-24 lg:pt-28">
+          <h1 id="home-title" className="display">
             TheFoxXu
           </h1>
-          <p className="mt-8 max-w-xl text-base font-semibold uppercase tracking-[0.14em] text-neutral-700 sm:text-lg">
+        </Reveal>
+
+        <Reveal className="mt-12 max-w-xl sm:mt-16">
+          <p className="text-2xl font-semibold leading-tight tracking-[-0.03em] sm:text-3xl">
             A student from Shanghai
           </p>
-          <p className="mt-4 max-w-xl text-sm leading-7 text-neutral-600 sm:text-base">
-            Student. Researching materials, machine learning, deep learning and superconducting RF cavities.
+          <p className="mt-5 text-base leading-7 sm:text-lg">
+            Student. Researching materials, machine learning, deep learning and superconducting RF
+            cavities.
           </p>
-        </motion.div>
+          <div className="mt-8 flex flex-wrap gap-x-10 gap-y-2">
+            <a className="link" href="#portfolio">
+              Selected work
+            </a>
+            <a className="link" href="https://caijp.me/#projects">
+              caijp.me
+            </a>
+          </div>
+        </Reveal>
+
+        <div className="mt-24 border-t border-black pb-8 pt-4 sm:mt-32">
+          <UptimeTimer />
+        </div>
       </div>
     </section>
   );

@@ -1,57 +1,50 @@
-import { motion, useReducedMotion } from 'framer-motion';
-import SectionTitle from './SectionTitle';
+import Reveal from './Reveal';
 
 export default function Contact() {
-  const reduceMotion = useReducedMotion();
-
   return (
-    <section
-      id="contact"
-      className="relative min-h-screen overflow-hidden bg-black px-5 pt-28 text-white sm:px-8 lg:pt-36"
-      aria-labelledby="contact-title"
-    >
-      <div className="mx-auto flex min-h-[calc(100vh-7rem)] max-w-site flex-col justify-between">
-        <div id="contact-title" className="relative z-10">
-          <SectionTitle eyebrow="Open to Research Dialogue" title="Contact" align="right" tone="light" />
-        </div>
+    <section id="contact" aria-labelledby="contact-title" className="bg-white">
+      <div className="mx-auto max-w-site px-5 py-20 sm:px-8 sm:py-28 lg:px-10 lg:py-36">
+        <h2 id="contact-title" className="display-section">
+          Contact
+        </h2>
 
-        <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 42 }}
-          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.35 }}
-          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-          className="relative z-10 max-w-3xl pb-10"
-        >
-          <dl className="grid gap-5 text-base leading-7 sm:text-lg">
-            <div>
-              <dt className="text-xs font-black uppercase tracking-[0.3em] text-neutral-500">Email</dt>
-              <dd className="mt-1 break-words font-semibold">caijp@163.com</dd>
-            </div>
-            <div>
-              <dt className="text-xs font-black uppercase tracking-[0.3em] text-neutral-500">GitHub</dt>
-              <dd className="mt-1 font-semibold">
-                <a href="https://github.com/caicai050115" target="_blank" rel="noreferrer" className="underline decoration-neutral-500 underline-offset-4 transition-colors hover:text-neutral-300">GitHub</a>
+        <Reveal className="mt-12 max-w-3xl sm:mt-16">
+          <p className="text-lg sm:text-xl">Open to Research Dialogue</p>
+          <dl className="mt-10 border-t border-black">
+            <div className="grid gap-2 border-b border-black py-6 sm:grid-cols-[10rem_minmax(0,1fr)] sm:items-baseline">
+              <dt>Email</dt>
+              <dd className="break-words text-2xl font-semibold tracking-[-0.03em] sm:text-3xl">
+                <a href="mailto:caijp@163.com" className="border-b border-black">
+                  caijp@163.com
+                </a>
               </dd>
             </div>
-            <div>
-              <dt className="text-xs font-black uppercase tracking-[0.3em] text-neutral-500">
-                Research Interest
-              </dt>
-              <dd className="mt-1 font-semibold">
+            <div className="grid gap-2 border-b border-black py-6 sm:grid-cols-[10rem_minmax(0,1fr)] sm:items-baseline">
+              <dt>GitHub</dt>
+              <dd className="text-2xl font-semibold tracking-[-0.03em] sm:text-3xl">
+                <a
+                  href="https://github.com/caicai050115"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="border-b border-black"
+                >
+                  GitHub
+                </a>
+              </dd>
+            </div>
+            <div className="grid gap-2 border-b border-black py-6 sm:grid-cols-[10rem_minmax(0,1fr)] sm:items-baseline">
+              <dt>Research Interest</dt>
+              <dd className="text-xl font-semibold leading-snug tracking-[-0.03em] sm:text-2xl">
                 Materials / Machine Learning / Deep Learning / Superconducting RF Cavities
               </dd>
             </div>
           </dl>
-
-          <a
-            href="mailto:caijp@163.com"
-            className="mt-10 inline-flex min-h-12 items-center border border-white px-7 text-sm font-black uppercase tracking-[0.22em] text-white transition-colors hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-4 focus:ring-offset-black"
-          >
+          <a className="link mt-8" href="mailto:caijp@163.com">
             Contact Me
           </a>
-        </motion.div>
+        </Reveal>
 
-        <footer className="relative z-10 border-t border-white/20 py-6 text-xs font-bold uppercase tracking-[0.22em] text-neutral-500">
+        <footer className="mt-24 border-t border-black pt-6 text-sm">
           © 2026 TheFoxXu. All rights reserved.
         </footer>
       </div>

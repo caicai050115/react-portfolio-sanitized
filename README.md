@@ -1,29 +1,35 @@
-# Personal Portfolio Template
+# TheFoxXu research homepage
 
-This is a sanitized black-and-white personal research homepage template.
+Trial redesign of the personal research portal. The current pass is pure black and white: white page, black type, thin rules, and no hero illustration. This branch is for review and local preview only. It does not merge, deploy, or change the live site, DNS, or server.
 
-Before publishing or deploying, replace the placeholder content:
+The live source snapshot is archived in `baseline/`, with SHA256 and restore steps in `baseline/RECOVERY.md`. Remote `master` is an older sanitized template and is not that snapshot.
 
-- `YourSiteName`
-- `YourName`
-- `Your Role`
-- `Your Field`
-- `Your Location`
-- `your.email@example.com`
-- `@your-github-handle`
-- `Your Research Interest`
-- `Your City`
-- `2000-01-01T00:00:00+00:00`
-
-## Development
+## Preview locally
 
 ```bash
 npm install
 npm run dev
 ```
 
-## Build
+Build, then serve the build without publishing it:
 
 ```bash
 npm run build
+npm run preview
 ```
+
+Inter is self-hosted with `@fontsource-variable/inter`. If that file fails to load, the page uses `Inter`, then `ui-sans-serif` / `system-ui`.
+
+## Roll back to the live baseline
+
+```bash
+git switch cursor/archive-live-baseline-6e10
+```
+
+Or restore the snapshot commit without replacing `.git`:
+
+```bash
+git checkout cfb17f32d5db11349808a4bf115f6ac05a70c8e3 -- .
+```
+
+The original tarball is `baseline/splendid1-source-original.tar.gz`.

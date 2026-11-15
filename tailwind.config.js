@@ -5,6 +5,7 @@ export default {
     extend: {
       fontFamily: {
         sans: [
+          'Inter Variable',
           'Inter',
           'ui-sans-serif',
           'system-ui',
@@ -15,7 +16,7 @@ export default {
         ],
       },
       maxWidth: {
-        site: '1320px',
+        site: '1120px',
       },
     },
   },
