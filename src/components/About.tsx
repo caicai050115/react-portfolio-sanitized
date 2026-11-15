@@ -1,38 +1,25 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import Reveal from './Reveal';
 import SectionTitle from './SectionTitle';
 
 export default function About() {
-  const reduceMotion = useReducedMotion();
-
   return (
-    <section
-      id="about"
-      className="relative min-h-[90vh] overflow-hidden bg-black px-5 py-28 text-white sm:px-8 lg:py-36"
-      aria-labelledby="about-title"
-    >
-      <div className="mx-auto grid max-w-site items-center gap-16 lg:grid-cols-[0.9fr_1.1fr]">
-        <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 44 }}
-          whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.45 }}
-          transition={{ duration: 0.75, ease: [0.22, 1, 0.36, 1] }}
-          className="max-w-xl pt-28 lg:pt-56"
-        >
-          <p className="mb-7 text-sm font-black uppercase tracking-[0.32em] text-neutral-400">
-            Profile / 2026
-          </p>
-          <p className="text-2xl font-black leading-tight sm:text-4xl">
+    <section id="about" aria-labelledby="about-title" className="on-ink bg-ink text-paper">
+      <div className="mx-auto grid max-w-site items-start gap-12 px-5 py-20 sm:px-8 lg:grid-cols-12 lg:gap-10 lg:px-10 lg:py-28">
+        <div className="lg:col-span-6 lg:col-start-7">
+          <SectionTitle id="about-title" eyebrow="TheFoxXu" title="About" align="right" tone="light" />
+        </div>
+
+        <Reveal className="lg:col-span-5 lg:col-start-1 lg:row-start-1 lg:self-end">
+          <p className="label text-white/50">Profile / 2026</p>
+          <p className="mt-6 max-w-xl text-2xl font-semibold leading-tight tracking-[-0.03em] sm:text-3xl">
             A student working across materials and machine learning.
           </p>
-          <p className="mt-8 text-base leading-8 text-neutral-300">
+          <p className="mt-6 max-w-xl text-base leading-8 text-white/75">
             I build a research workflow around structured literature reading, knowledge cards,
-            experiment notes and concise academic writing. Current interests include materials, machine learning, deep learning and superconducting RF cavities.
+            experiment notes and concise academic writing. Current interests include materials, machine
+            learning, deep learning and superconducting RF cavities.
           </p>
-        </motion.div>
-
-        <div id="about-title" className="relative z-10 lg:self-start">
-          <SectionTitle eyebrow="TheFoxXu" title="About" align="right" tone="light" />
-        </div>
+        </Reveal>
       </div>
     </section>
   );

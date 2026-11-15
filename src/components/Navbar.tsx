@@ -1,5 +1,4 @@
-import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -10,64 +9,108 @@ const navItems = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [current, setCurrent] = useState('#home');
+
+  useEffect(() => {
+    const sections = navItems
+      .map((item) => document.querySelector(item.href))
+      .filter((node): node is HTMLElement => node instanceof HTMLElement);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visible?.target.id) {
+          setCurrent(`#${visible.target.id}`);
+        }
+      },
+      { rootMargin: '-30% 0px -50% 0px', threshold: [0.05, 0.2, 0.45] },
+    );
+
+    sections.forEach((section) => observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isOpen) {
+      return undefined;
+    }
+
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsOpen(false);
+      }
+    };
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    document.addEventListener('keydown', onKey);
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [isOpen]);
 
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-black/15 bg-white/95 backdrop-blur">
+    <header className="sticky top-0 z-40 border-b border-ink/15 bg-paper">
       <nav
-        className="mx-auto flex max-w-site items-center justify-between px-5 py-4 sm:px-8"
+        className="mx-auto flex h-16 max-w-site items-center justify-between px-5 sm:px-8 lg:px-10"
         aria-label="Primary navigation"
       >
-        <a
-          href="#home"
-          onClick={closeMenu}
-          className="text-lg font-black tracking-normal text-black"
-        >
+        <a href="#home" onClick={closeMenu} className="text-[1.05rem] font-extrabold tracking-[-0.04em]">
           TheFoxXu
         </a>
 
         <button
           type="button"
-          className="inline-flex size-10 items-center justify-center border border-black bg-white text-black transition-colors hover:bg-black hover:text-white md:hidden"
+          className="inline-flex min-h-10 items-center rounded-full border border-ink px-3.5 text-[0.68rem] font-semibold uppercase tracking-[0.16em] md:hidden"
           aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={isOpen}
           onClick={() => setIsOpen((value) => !value)}
         >
-          {isOpen ? <X size={19} aria-hidden="true" /> : <Menu size={19} aria-hidden="true" />}
+          {isOpen ? 'Close' : 'Menu'}
         </button>
 
-        <div className="hidden items-center gap-9 md:flex">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              className="text-sm font-bold uppercase tracking-[0.18em] text-black transition-opacity hover:opacity-55"
-            >
-              {item.label}
-            </a>
-          ))}
+        <div className="hidden items-center gap-8 md:flex">
+          {navItems.map((item) => {
+            const active = current === item.href;
+
+            return (
+              <a
+                key={item.href}
+                href={item.href}
+                aria-current={active ? 'true' : undefined}
+                className={`label transition-opacity hover:opacity-55 ${active ? 'opacity-100' : 'opacity-80'}`}
+              >
+                {item.label}
+              </a>
+            );
+          })}
         </div>
       </nav>
 
-      <div
-        className={`border-t border-black/10 bg-white px-5 transition-[max-height,opacity] duration-300 md:hidden ${
-          isOpen ? 'max-h-72 opacity-100' : 'max-h-0 overflow-hidden opacity-0'
-        }`}
-      >
-        <div className="mx-auto grid max-w-site grid-cols-2 gap-px py-4">
-          {navItems.map((item) => (
-            <a
-              key={item.href}
-              href={item.href}
-              onClick={closeMenu}
-              className="border border-black px-4 py-3 text-center text-xs font-black uppercase tracking-[0.2em] text-black transition-colors hover:bg-black hover:text-white"
-            >
-              {item.label}
-            </a>
-          ))}
+      {isOpen ? (
+        <div className="fixed inset-x-0 bottom-0 top-16 z-30 overflow-y-auto bg-paper px-5 py-6 md:hidden">
+          <div className="mx-auto flex max-w-site flex-col">
+            {navItems.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={closeMenu}
+                aria-current={current === item.href ? 'true' : undefined}
+                className="border-t border-ink/15 py-5 text-4xl font-extrabold uppercase tracking-[-0.05em] last:border-b"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
         </div>
-      </div>
+      ) : null}
     </header>
   );
 }

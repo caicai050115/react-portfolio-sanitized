@@ -1,49 +1,69 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import Reveal from './Reveal';
 import UptimeTimer from './UptimeTimer';
 
 export default function Hero() {
-  const reduceMotion = useReducedMotion();
-
   return (
-    <section
-      id="home"
-      className="relative flex min-h-screen overflow-hidden bg-white px-5 pt-28 text-black sm:px-8"
-      aria-labelledby="home-title"
-    >
-      <div className="absolute bottom-8 right-6 hidden h-24 w-px bg-black sm:block" aria-hidden="true" />
-      <UptimeTimer />
+    <section id="home" aria-labelledby="home-title" className="border-b border-ink/15">
+      <div className="mx-auto grid max-w-site lg:grid-cols-[11.5rem_minmax(0,1fr)]">
+        <aside className="hidden border-r border-ink/15 px-8 py-12 lg:block lg:px-10">
+          <p className="label">01</p>
+          <p className="label mt-3">Home</p>
+          <div className="my-8 h-24 w-px bg-ink/25" aria-hidden="true" />
+          <p className="label">Student</p>
+          <p className="label mt-3">Shanghai</p>
+        </aside>
 
-      <div className="relative z-10 mx-auto flex w-full max-w-site flex-col justify-center pb-20">
-        <motion.p
-          initial={reduceMotion ? false : { opacity: 0, y: 18 }}
-          animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.15 }}
-          className="ml-auto max-w-[16rem] pb-8 text-sm font-bold uppercase tracking-[0.28em] text-neutral-700 sm:mr-[14vw]"
-        >
-          Hello world
-        </motion.p>
+        <div className="min-w-0 px-5 py-10 sm:px-8 lg:px-12 lg:py-14">
+          <Reveal className="[container-type:inline-size]">
+            <p className="label text-mute lg:hidden">Student · Shanghai</p>
+            <p className="label mt-3 text-mute lg:mt-0">Research homepage</p>
+            <h1 id="home-title" className="display mt-4 break-words">
+              TheFoxXu
+            </h1>
+          </Reveal>
 
-        <motion.div
-          initial={reduceMotion ? false : { opacity: 0, y: 52 }}
-          animate={reduceMotion ? undefined : { opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-          className="ml-auto w-full max-w-[980px]"
-        >
-          <h1
-            id="home-title"
-            className="text-[clamp(3rem,13.5vw,11.5rem)] font-black uppercase leading-[0.82] tracking-normal"
-          >
-            HELLO I'M
-            <br />
-            TheFoxXu
-          </h1>
-          <p className="mt-8 max-w-xl text-base font-semibold uppercase tracking-[0.14em] text-neutral-700 sm:text-lg">
-            A student from Shanghai
-          </p>
-          <p className="mt-4 max-w-xl text-sm leading-7 text-neutral-600 sm:text-base">
-            Student. Researching materials, machine learning, deep learning and superconducting RF cavities.
-          </p>
-        </motion.div>
+          <div className="mt-10 grid items-start gap-10 lg:mt-14 lg:grid-cols-12">
+            <Reveal className="lg:col-span-5">
+              <p className="text-lg font-semibold uppercase tracking-[0.12em] sm:text-xl">
+                A student from Shanghai
+              </p>
+              <p className="prose-copy mt-4 max-w-md">
+                Student. Researching materials, machine learning, deep learning and superconducting RF
+                cavities.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <a className="btn btn-fill" href="#portfolio">
+                  Selected work
+                </a>
+                <a className="btn btn-line" href="https://caijp.me/#projects">
+                  caijp.me ↗
+                </a>
+              </div>
+            </Reveal>
+
+            <Reveal className="lg:col-span-6 lg:col-start-7">
+              <figure className="bg-ink">
+                <a href="#portfolio" className="block">
+                  <img
+                    src="/assets/projects/homepage.webp"
+                    alt="Decorative illustration. Go to selected work."
+                    width="1152"
+                    height="864"
+                    className="aspect-[4/3] w-full object-contain object-center"
+                  />
+                </a>
+                <figcaption className="label flex items-center justify-between gap-4 px-4 py-3 text-white/65">
+                  <span>01 / splendid1.xyz</span>
+                  <span>Illustration</span>
+                </figcaption>
+              </figure>
+            </Reveal>
+          </div>
+
+          <div className="mt-10 lg:mt-14">
+            <UptimeTimer />
+          </div>
+        </div>
       </div>
     </section>
   );
