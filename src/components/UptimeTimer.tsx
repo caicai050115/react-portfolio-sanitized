@@ -1,12 +1,12 @@
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { useEffect, useMemo, useRef, useState } from 'react';
 
-const birthTime = new Date('2000-01-01T00:00:00+00:00').getTime();
+const birthTime = new Date('2026-09-01T00:00:00+08:00').getTime();
 const revealStepMs = 42;
 const holdMs = 3000;
 const eraseTotalMs = 2000;
 const fallbackWeather = {
-  city: 'Your City',
+  city: 'Shanghai',
   weather: 'Loading',
 };
 

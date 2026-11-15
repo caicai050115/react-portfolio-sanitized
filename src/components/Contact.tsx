@@ -25,24 +25,26 @@ export default function Contact() {
           <dl className="grid gap-5 text-base leading-7 sm:text-lg">
             <div>
               <dt className="text-xs font-black uppercase tracking-[0.3em] text-neutral-500">Email</dt>
-              <dd className="mt-1 break-words font-semibold">your.email@example.com</dd>
+              <dd className="mt-1 break-words font-semibold">caijp@163.com</dd>
             </div>
             <div>
               <dt className="text-xs font-black uppercase tracking-[0.3em] text-neutral-500">GitHub</dt>
-              <dd className="mt-1 font-semibold">@your-github-handle</dd>
+              <dd className="mt-1 font-semibold">
+                <a href="https://github.com/caicai050115" target="_blank" rel="noreferrer" className="underline decoration-neutral-500 underline-offset-4 transition-colors hover:text-neutral-300">GitHub</a>
+              </dd>
             </div>
             <div>
               <dt className="text-xs font-black uppercase tracking-[0.3em] text-neutral-500">
                 Research Interest
               </dt>
               <dd className="mt-1 font-semibold">
-                Your Research Interest / Your Academic Direction
+                Materials / Machine Learning / Deep Learning / Superconducting RF Cavities
               </dd>
             </div>
           </dl>
 
           <a
-            href="mailto:your.email@example.com"
+            href="mailto:caijp@163.com"
             className="mt-10 inline-flex min-h-12 items-center border border-white px-7 text-sm font-black uppercase tracking-[0.22em] text-white transition-colors hover:bg-white hover:text-black focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-4 focus:ring-offset-black"
           >
             Contact Me
@@ -50,7 +52,7 @@ export default function Contact() {
         </motion.div>
 
         <footer className="relative z-10 border-t border-white/20 py-6 text-xs font-bold uppercase tracking-[0.22em] text-neutral-500">
-          © 2026 Your Name. All rights reserved.
+          © 2026 TheFoxXu. All rights reserved.
         </footer>
       </div>
     </section>
