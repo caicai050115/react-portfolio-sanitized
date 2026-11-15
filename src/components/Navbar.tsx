@@ -4,7 +4,7 @@ import { useState } from 'react';
 const navItems = [
   { label: 'Home', href: '#home' },
   { label: 'About', href: '#about' },
-  { label: 'Service', href: '#service' },
+  { label: 'Portfolio', href: '#portfolio' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -24,7 +24,7 @@ export default function Navbar() {
           onClick={closeMenu}
           className="text-lg font-black tracking-normal text-black"
         >
-          YourSiteName
+          TheFoxXu
         </a>
 
         <button

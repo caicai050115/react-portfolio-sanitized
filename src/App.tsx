@@ -3,7 +3,7 @@ import Contact from './components/Contact';
 import CustomCursor from './components/CustomCursor';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
-import Services from './components/Services';
+import Portfolio from './components/Portfolio';
 
 export default function App() {
   return (
@@ -13,7 +13,7 @@ export default function App() {
       <main>
         <Hero />
         <About />
-        <Services />
+        <Portfolio />
         <Contact />
       </main>
     </>

@@ -22,17 +22,16 @@ export default function About() {
             Profile / 2026
           </p>
           <p className="text-2xl font-black leading-tight sm:text-4xl">
-            A student or researcher in Your Academic Field.
+            A student working across materials and machine learning.
           </p>
           <p className="mt-8 text-base leading-8 text-neutral-300">
             I build a research workflow around structured literature reading, knowledge cards,
-            experiment notes and concise academic writing. Current interests include your
-            research topic, methods and long-term study direction.
+            experiment notes and concise academic writing. Current interests include materials, machine learning, deep learning and superconducting RF cavities.
           </p>
         </motion.div>
 
         <div id="about-title" className="relative z-10 lg:self-start">
-          <SectionTitle eyebrow="Your Name" title="About" align="right" tone="light" />
+          <SectionTitle eyebrow="TheFoxXu" title="About" align="right" tone="light" />
         </div>
       </div>
     </section>

@@ -35,14 +35,13 @@ export default function Hero() {
           >
             HELLO I'M
             <br />
-            YourName
+            TheFoxXu
           </h1>
           <p className="mt-8 max-w-xl text-base font-semibold uppercase tracking-[0.14em] text-neutral-700 sm:text-lg">
-            A student from Your Location
+            A student from Shanghai
           </p>
           <p className="mt-4 max-w-xl text-sm leading-7 text-neutral-600 sm:text-base">
-            Your Role / Your Field. Researching your primary topic, secondary topic
-            and long-term academic interests.
+            Student. Researching materials, machine learning, deep learning and superconducting RF cavities.
           </p>
         </motion.div>
       </div>
