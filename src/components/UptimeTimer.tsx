@@ -34,12 +34,11 @@ export default function UptimeTimer() {
   const reading = `${uptime.year} Year ${uptime.day} Day ${pad(uptime.hour)} Hour ${pad(uptime.minute)} Min ${pad(uptime.second)} S`;
 
   return (
-    <div className="flex flex-wrap gap-x-8 gap-y-2 border-t border-ink/15 pt-4">
-      <p className="label text-mute">
-        Since <span className="text-ink">2026.09.01</span>
-      </p>
-      <p className="label tabular-nums text-ink">{reading}</p>
-      <p className="label text-ink">Shanghai</p>
-    </div>
+    <p className="text-xs tabular-nums">
+      <span className="sr-only">Site since </span>
+      2026.09.01
+      <span aria-hidden="true"> · </span>
+      {reading}
+    </p>
   );
 }

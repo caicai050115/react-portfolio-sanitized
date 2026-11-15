@@ -1,5 +1,4 @@
 import Reveal from './Reveal';
-import SectionTitle from './SectionTitle';
 
 const projects = [
   {
@@ -33,64 +32,46 @@ const projects = [
 
 export default function Portfolio() {
   return (
-    <section id="portfolio" aria-labelledby="portfolio-title" className="px-5 py-20 sm:px-8 lg:px-10 lg:py-28">
-      <div className="mx-auto max-w-site">
-        <SectionTitle id="portfolio-title" eyebrow="Selected Work" title="Portfolio" />
+    <section id="portfolio" aria-labelledby="portfolio-title" className="bg-white">
+      <div className="mx-auto max-w-site px-5 py-20 sm:px-8 sm:py-28 lg:px-10 lg:py-36">
+        <h2 id="portfolio-title" className="display-section">
+          Portfolio
+        </h2>
 
-        <div className="mt-12 border-t border-ink/15 lg:mt-16">
-          {projects.map((project, index) => {
-            const imageLeads = index % 2 === 1;
-
-            return (
-              <article
-                key={project.number}
-                className="grid items-center gap-8 border-b border-ink/15 py-10 lg:grid-cols-12 lg:gap-10 lg:py-14"
-              >
-                <Reveal className={imageLeads ? 'lg:col-span-5 lg:col-start-8' : 'lg:col-span-5'}>
-                  <p className="label text-mute">
-                    {project.number} — {project.subtitle}
+        <div className="mt-14 border-t border-black sm:mt-20">
+          {projects.map((project) => (
+            <article key={project.number} className="border-b border-black py-12 sm:py-16">
+              <div className="grid items-start gap-8 lg:grid-cols-12 lg:gap-12">
+                <Reveal className="lg:col-span-5">
+                  <p className="text-sm">
+                    {project.number} · {project.subtitle}
                   </p>
-                  <h3 className="mt-3 text-3xl font-extrabold uppercase leading-none tracking-[-0.045em] sm:text-5xl">
+                  <h3 className="mt-3 text-3xl font-semibold leading-none tracking-[-0.04em] sm:text-4xl">
                     {project.title}
                   </h3>
-                  <p className="prose-copy mt-5 max-w-md">{project.description}</p>
-                  <a
-                    href={project.href}
-                    className="label mt-6 inline-flex min-h-11 items-center underline decoration-ink/30 underline-offset-4 hover:decoration-ink"
-                  >
+                  <p className="mt-5 max-w-md text-base leading-7">{project.description}</p>
+                  <a className="link mt-6" href={project.href}>
                     View details ↗
                   </a>
                 </Reveal>
-
-                <Reveal
-                  className={
-                    imageLeads
-                      ? 'lg:col-span-6 lg:col-start-1 lg:row-start-1'
-                      : 'lg:col-span-6 lg:col-start-7'
-                  }
-                >
-                  <figure className="bg-ink">
-                    <img
-                      src={project.image}
-                      alt={`${project.title} decorative illustration`}
-                      width="1152"
-                      height="864"
-                      loading="lazy"
-                      className="aspect-[4/3] w-full object-contain"
-                    />
-                    <figcaption className="label px-4 py-3 text-white/60">Illustration</figcaption>
-                  </figure>
+                <Reveal className="lg:col-span-6 lg:col-start-7">
+                  <img
+                    src={project.image}
+                    alt=""
+                    width="1152"
+                    height="864"
+                    loading="lazy"
+                    className="w-full"
+                  />
                 </Reveal>
-              </article>
-            );
-          })}
+              </div>
+            </article>
+          ))}
         </div>
 
-        <div className="mt-10 flex justify-start lg:justify-end">
-          <a className="btn btn-line" href="https://caijp.me">
-            More on caijp.me ↗
-          </a>
-        </div>
+        <a className="link mt-10" href="https://caijp.me">
+          More on caijp.me ↗
+        </a>
       </div>
     </section>
   );

@@ -57,18 +57,18 @@ export default function Navbar() {
   const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="sticky top-0 z-40 border-b border-ink/15 bg-paper">
+    <header className="sticky top-0 z-40 border-b border-black bg-white">
       <nav
         className="mx-auto flex h-16 max-w-site items-center justify-between px-5 sm:px-8 lg:px-10"
         aria-label="Primary navigation"
       >
-        <a href="#home" onClick={closeMenu} className="text-[1.05rem] font-extrabold tracking-[-0.04em]">
+        <a href="#home" onClick={closeMenu} className="text-base font-semibold tracking-[-0.03em]">
           TheFoxXu
         </a>
 
         <button
           type="button"
-          className="inline-flex min-h-10 items-center rounded-full border border-ink px-3.5 text-[0.68rem] font-semibold uppercase tracking-[0.16em] md:hidden"
+          className="min-h-10 text-sm md:hidden"
           aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
           aria-expanded={isOpen}
           onClick={() => setIsOpen((value) => !value)}
@@ -85,7 +85,7 @@ export default function Navbar() {
                 key={item.href}
                 href={item.href}
                 aria-current={active ? 'true' : undefined}
-                className={`label transition-opacity hover:opacity-55 ${active ? 'opacity-100' : 'opacity-80'}`}
+                className={`text-sm ${active ? 'border-b border-black' : ''}`}
               >
                 {item.label}
               </a>
@@ -95,7 +95,7 @@ export default function Navbar() {
       </nav>
 
       {isOpen ? (
-        <div className="fixed inset-x-0 bottom-0 top-16 z-30 overflow-y-auto bg-paper px-5 py-6 md:hidden">
+        <div className="fixed inset-x-0 bottom-0 top-16 z-30 overflow-y-auto bg-white px-5 md:hidden">
           <div className="mx-auto flex max-w-site flex-col">
             {navItems.map((item) => (
               <a
@@ -103,7 +103,7 @@ export default function Navbar() {
                 href={item.href}
                 onClick={closeMenu}
                 aria-current={current === item.href ? 'true' : undefined}
-                className="border-t border-ink/15 py-5 text-4xl font-extrabold uppercase tracking-[-0.05em] last:border-b"
+                className="border-b border-black py-5 text-4xl font-semibold tracking-[-0.04em]"
               >
                 {item.label}
               </a>

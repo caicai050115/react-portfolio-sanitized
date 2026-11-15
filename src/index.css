@@ -14,13 +14,8 @@
 }
 
 :root {
-  --paper: #f3f1ec;
-  --ink: #141414;
-  --mute: #5f5b54;
-  --body: #2a2826;
-  --line: rgba(20, 20, 20, 0.16);
-  color: var(--ink);
-  background: var(--paper);
+  color: #000000;
+  background: #ffffff;
   color-scheme: light;
   font-synthesis: none;
   text-rendering: geometricPrecision;
@@ -34,7 +29,7 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 5rem;
+  scroll-padding-top: 4.5rem;
   overflow-x: clip;
 }
 
@@ -42,8 +37,8 @@ body {
   min-width: 320px;
   margin: 0;
   overflow-x: clip;
-  background: var(--paper);
-  color: var(--ink);
+  background: #ffffff;
+  color: #000000;
   font-family:
     'Inter Variable',
     Inter,
@@ -61,17 +56,17 @@ a {
 }
 
 :focus-visible {
-  outline: 2px solid var(--ink);
+  outline: 2px solid #000000;
   outline-offset: 3px;
 }
 
-.on-ink :focus-visible {
-  outline-color: var(--paper);
+.on-black :focus-visible {
+  outline-color: #ffffff;
 }
 
 ::selection {
-  background: var(--ink);
-  color: var(--paper);
+  background: #000000;
+  color: #ffffff;
 }
 
 .skip-link {
@@ -79,34 +74,24 @@ a {
   left: 1rem;
   top: -4rem;
   z-index: 60;
-  background: var(--ink);
-  color: var(--paper);
+  background: #000000;
+  color: #ffffff;
   padding: 0.7rem 1rem;
   font-size: 0.75rem;
-  font-weight: 650;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-weight: 600;
 }
 
 .skip-link:focus {
   top: 0.75rem;
 }
 
-.label {
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.18em;
-  line-height: 1.35;
-  text-transform: uppercase;
-}
-
 .display {
   max-width: 100%;
   font-weight: 800;
-  letter-spacing: -0.055em;
-  line-height: 0.84;
-  font-size: clamp(3rem, 12vw, 9.5rem);
-  font-size: clamp(2.75rem, 15cqi, 10.75rem);
+  letter-spacing: -0.06em;
+  line-height: 0.82;
+  font-size: clamp(3.25rem, 13vw, 10rem);
+  font-size: clamp(3rem, 16.5cqi, 11.5rem);
   text-transform: uppercase;
   overflow-wrap: normal;
 }
@@ -114,65 +99,28 @@ a {
 .display-section {
   max-width: 100%;
   font-weight: 800;
-  letter-spacing: -0.05em;
+  letter-spacing: -0.055em;
   line-height: 0.84;
-  font-size: clamp(2.65rem, 10.5vw, 8rem);
+  font-size: clamp(2.75rem, 11vw, 8.5rem);
   text-transform: uppercase;
   overflow-wrap: normal;
 }
 
-.prose-copy {
-  color: var(--body);
-  font-size: 1.02rem;
-  line-height: 1.7;
-}
-
-.btn {
+.link {
   display: inline-flex;
-  min-height: 3rem;
+  min-height: 2.75rem;
   align-items: center;
-  justify-content: center;
-  padding: 0 1.15rem;
-  font-size: 0.74rem;
-  font-weight: 650;
-  letter-spacing: 0.16em;
+  border-bottom: 1px solid #000000;
+  color: #000000;
+  font-size: 0.95rem;
+  font-weight: 560;
   line-height: 1;
-  text-transform: uppercase;
   text-decoration: none;
-  transition:
-    background-color 180ms ease,
-    color 180ms ease;
 }
 
-.btn-fill {
-  background: var(--ink);
-  color: var(--paper);
-}
-
-.btn-fill:hover {
-  background: #2c2c2c;
-}
-
-.btn-line {
-  border: 1px solid var(--ink);
-  background: transparent;
-  color: var(--ink);
-}
-
-.btn-line:hover {
-  background: var(--ink);
-  color: var(--paper);
-}
-
-.btn-line-light {
-  border: 1px solid rgba(243, 241, 236, 0.8);
-  background: transparent;
-  color: var(--paper);
-}
-
-.btn-line-light:hover {
-  background: var(--paper);
-  color: var(--ink);
+.on-black .link {
+  border-bottom-color: #ffffff;
+  color: #ffffff;
 }
 
 .rise {
@@ -181,8 +129,8 @@ a {
 
 @media (prefers-reduced-motion: no-preference) {
   html.js .rise {
-    transform: translateY(12px);
-    transition: transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(10px);
+    transition: transform 640ms cubic-bezier(0.22, 1, 0.36, 1);
   }
 
   html.js .rise.is-in {

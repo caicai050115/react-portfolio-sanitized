@@ -1,6 +1,6 @@
 # TheFoxXu research homepage
 
-Trial redesign of the personal research portal. This branch is for review and local preview only. It does not merge, deploy, or change the live site, DNS, or server.
+Trial redesign of the personal research portal. The current pass is pure black and white: white page, black type, thin rules, and no hero illustration. This branch is for review and local preview only. It does not merge, deploy, or change the live site, DNS, or server.
 
 The live source snapshot is archived in `baseline/`, with SHA256 and restore steps in `baseline/RECOVERY.md`. Remote `master` is an older sanitized template and is not that snapshot.
 

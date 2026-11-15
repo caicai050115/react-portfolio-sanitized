@@ -3,11 +3,6 @@ export default {
   content: ['./index.html', './src/**/*.{ts,tsx}'],
   theme: {
     extend: {
-      colors: {
-        paper: '#f3f1ec',
-        ink: '#141414',
-        mute: '#5f5b54',
-      },
       fontFamily: {
         sans: [
           'Inter Variable',
@@ -21,7 +16,7 @@ export default {
         ],
       },
       maxWidth: {
-        site: '1440px',
+        site: '1120px',
       },
     },
   },
