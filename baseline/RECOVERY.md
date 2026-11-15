@@ -29,10 +29,16 @@ sha256sum -c baseline/SHA256SUMS
 
 ## 恢复现站源码，且不覆盖 .git
 
-在已有仓库里，把跟踪文件回到引入本归档的那次提交（用 `git log -- baseline/RECOVERY.md` 查看）：
+导入快照的提交是 `cfb17f32d5db11349808a4bf115f6ac05a70c8e3`。归档分支 `cursor/archive-live-baseline-6e10` 在该提交之上只追加本说明。连同说明回到归档：
 
 ```bash
-git checkout <archive-commit> -- .
+git switch cursor/archive-live-baseline-6e10
+```
+
+只把跟踪文件回到快照导入提交：
+
+```bash
+git checkout cfb17f32d5db11349808a4bf115f6ac05a70c8e3 -- .
 ```
 
 只从压缩包还原源码时，先解到空目录，再复制进去。不要把压缩包直接解到含 `.git` 的目录上，以免和现有文件混在一起；这个包本身不含 `.git`。
@@ -65,7 +71,7 @@ master 有、现站没有：
 ## 本地预览这条基线（不部署）
 
 ```bash
-git checkout <archive-commit>
+git checkout cfb17f32d5db11349808a4bf115f6ac05a70c8e3
 npm install
 npm run dev
 ```
